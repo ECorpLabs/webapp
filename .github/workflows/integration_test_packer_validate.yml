@@ -40,7 +40,7 @@ jobs:
     - name: Setup dependencies
       run: go mod download
 
-    - name: Test
+    - name: Integration Test
       run: |
         
         cd ./test

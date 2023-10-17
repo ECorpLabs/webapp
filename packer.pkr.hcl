@@ -20,7 +20,7 @@ variable "subnet_id" {
 source "amazon-ebs" "debian12" {
   ami_name      = "ECorp-debian-12-ami_${formatdate("YYYY-MM-DD_hh-mm-ss", timestamp())}"
   ami_users     = ["042793801071"]
-  profile       = "dev"
+  profile       = "default"
   instance_type = "t2.micro"
   region        = "${var.aws_region}"
   source_ami_filter {
