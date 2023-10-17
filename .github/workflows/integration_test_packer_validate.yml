@@ -64,6 +64,9 @@ jobs:
     - name: Check Packer Formatting
       run: |
           packer fmt -check -diff packer.pkr.hcl
+
+    - name: Initialize Packer and install dependencies
+      run: packer init packer.pkr.hcl
     
     - name: Validate Packer Configuration
       run: |
