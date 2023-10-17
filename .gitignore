@@ -22,5 +22,5 @@ go.work
 
 **/.DS_Store
 
-
+*.env
 .env.local
