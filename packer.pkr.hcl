@@ -49,7 +49,7 @@ build {
   provisioner "file" {
     sources = [
       "./webapp",
-      "./users.csv"
+      "./data/users.csv"
     ]
     destination = "/tmp/"
   }

@@ -52,6 +52,9 @@ jobs:
         DB_PASSWORD: postgres
         DB_NAME: postgres
 
+    - name: Build Go artifact
+      run: go build 
+
     - name: Set up Packer
       run: |
           wget https://releases.hashicorp.com/packer/1.7.7/packer_1.7.7_linux_amd64.zip
