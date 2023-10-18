@@ -7,66 +7,18 @@ packer {
   }
 }
 
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
-}
-
-variable "subnet_id" {
-  type    = string
-  default = "subnet-071040365a5f7a5f8"
-}
-
-variable ami_users {
-  type    = list(string)
-  default = ["042793801071"]
-}
-variable "instance_type" {
-  type    = string
-  default = "t2.micro"
-}
-variable "profile" {
-  type    = string
-  default = "default"
-}
-
-variable "volume_size" {
-  type    = number
-  default = 25
-}
-
-variable device_name {
-  type    = string
-  default = "/dev/xvda"
-}
-
-variable volume_type {
-  type    = string
-  default = "gp2"
-}
-
-variable script_path {
-  type    = string
-  default = "./scripts/setup.sh"
-}
-
-variable "file_paths" {
-  type = list(string)
-  default = [
-    "./webapp",
-    "./data/users.csv",
-  ]
-}
-
-variable destination_path {
-  type    = string
-  default = "/tmp/"
-}
-
-variable ssh_username {
-  type    = string
-  default = "admin"
-}
+variable "aws_region" {}
+variable "subnet_id" {}
+variable ami_users {}
+variable "instance_type" {}
+variable "profile" {}
+variable "volume_size" {}
+variable device_name {}
+variable volume_type {}
+variable script_path {}
+variable "file_paths" {}
+variable destination_path {}
+variable ssh_username {}
 
 source "amazon-ebs" "debian12" {
   ami_name      = "ECorp-debian-12-ami_${formatdate("YYYY-MM-DD-hh-mm-ss", timestamp())}"
