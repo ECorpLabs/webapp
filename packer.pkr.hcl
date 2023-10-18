@@ -30,13 +30,50 @@ variable "profile" {
   default = "default"
 }
 
+variable "volume_size" {
+  type    = number
+  default = 25
+}
+
+variable device_name {
+  type    = string
+  default = "/dev/xvda"
+}
+
+variable volume_type {
+  type    = string
+  default = "gp2"
+}
+
+variable script_path {
+  type    = string
+  default = "./scripts/setup.sh"
+}
+
+variable "file_paths" {
+  type = list(string)
+  default = [
+    "./webapp",
+    "./data/users.csv",
+  ]
+}
+
+variable destination_path {
+  type    = string
+  default = "/tmp/"
+}
+
+variable ssh_username {
+  type    = string
+  default = "admin"
+}
 
 source "amazon-ebs" "debian12" {
   ami_name      = "ECorp-debian-12-ami_${formatdate("YYYY-MM-DD-hh-mm-ss", timestamp())}"
-  ami_users     = "${var.ami_users}"
-  profile       = "${var.profile}"
-  instance_type = "${var.instance_type}"
-  region        = "${var.aws_region}"
+  ami_users     = var.ami_users
+  profile       = var.profile
+  instance_type = var.instance_type
+  region        = var.aws_region
   source_ami_filter {
     filters = {
       name                = "debian-12-amd64-*"
@@ -46,14 +83,14 @@ source "amazon-ebs" "debian12" {
     most_recent = true
     owners      = ["amazon"]
   }
-  subnet_id    = "${var.subnet_id}"
-  ssh_username = "admin"
+  subnet_id    = var.subnet_id
+  ssh_username = var.ssh_username
 
   launch_block_device_mappings {
-    device_name           = "/dev/xvda"
+    device_name           = var.device_name
     delete_on_termination = true
-    volume_size           = 25
-    volume_type           = "gp2"
+    volume_size           = var.volume_size
+    volume_type           = var.volume_type
   }
 }
 
@@ -61,15 +98,11 @@ build {
   sources = ["source.amazon-ebs.debian12"]
 
   provisioner "file" {
-    sources = [
-      "./webapp",
-      "./data/users.csv"
-    ]
-    destination = "/tmp/"
+    sources     = var.file_paths
+    destination = var.destination_path
   }
 
   provisioner "shell" {
-
-    script = "./scripts/setup.sh"
+    script = var.script_path
   }
 }
