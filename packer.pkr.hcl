@@ -18,7 +18,7 @@ variable "subnet_id" {
 }
 
 variable ami_users {
-  type = list(string)
+  type    = list(string)
   default = ["042793801071"]
 }
 variable "instance_type" {
