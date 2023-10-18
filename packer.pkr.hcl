@@ -17,11 +17,25 @@ variable "subnet_id" {
   default = "subnet-071040365a5f7a5f8"
 }
 
+variable ami_users {
+  type    = list(string)
+  default = ["042793801071"]
+}
+variable "instance_type" {
+  type    = string
+  default = "t2.micro"
+}
+variable "profile" {
+  type    = string
+  default = "default"
+}
+
+
 source "amazon-ebs" "debian12" {
-  ami_name      = "ECorp-debian-12-ami_${formatdate("YYYY-MM-DD_hh-mm-ss", timestamp())}"
-  ami_users     = ["042793801071"]
-  profile       = "default"
-  instance_type = "t2.micro"
+  ami_name      = "ECorp-debian-12-ami_${formatdate("YYYY-MM-DD-hh-mm-ss", timestamp())}"
+  ami_users     = "${var.ami_users}"
+  profile       = "${var.profile}"
+  instance_type = "${var.instance_type}"
   region        = "${var.aws_region}"
   source_ami_filter {
     filters = {
