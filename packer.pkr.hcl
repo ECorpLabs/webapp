@@ -7,16 +7,16 @@ packer {
   }
 }
 
-variable "aws_region" {}
-variable "subnet_id" {}
+variable aws_region {}
+variable subnet_id {}
 variable ami_users {}
-variable "instance_type" {}
-variable "profile" {}
-variable "volume_size" {}
+variable instance_type {}
+variable profile {}
+variable volume_size {}
 variable device_name {}
 variable volume_type {}
 variable script_path {}
-variable "file_paths" {}
+variable file_paths {}
 variable destination_path {}
 variable ssh_username {}
 
