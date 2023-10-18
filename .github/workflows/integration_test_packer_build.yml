@@ -76,15 +76,11 @@ jobs:
 
     - name: Initialize Packer and install dependencies
       run: packer init packer.pkr.hcl
-    
-    - name: Validate Packer Configuration
-      run: |
-            packer validate packer.pkr.hcl
 
     - name: Validate Packer Configuration
       run: |
-            packer validate packer.pkr.hcl
+            packer validate -var-file=packer.pkrvars.hcl packer.pkr.hcl
 
     - name: Validate Packer Configuration
       run: |
-            packer build packer.pkr.hcl
+            packer build -var-file=packer.pkrvars.hcl packer.pkr.hcl
