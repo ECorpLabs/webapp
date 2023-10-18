@@ -1,5 +1,8 @@
+#!/bin/bash
+
 sleep 30
 sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt install postgresql postgresql-contrib -y
 sudo systemctl start postgresql.service
 
@@ -11,12 +14,14 @@ source ~/.bashrc
 
 
 mv /tmp/webapp /home/admin/webapp
-mv /tmp/users.csv /home/opt/users.csv
+mv /tmp/users.csv /opt/users.csv
 
-echo 'DB_HOST:"localhost"' >> .env 
-echo 'DB_PORT:"5432"' >> .env 
-echo 'DB_USER:"postgres"' >> .env 
-echo 'DB_PASSWORD:"postgres"' >> .env 
-echo 'DB_NAME:"dushyant"' >> .env 
-echo 'APP_PORT:"8080"' >> .env 
-echo 'FILE_PATH:"$HOME/opt/users.csv"' >> .env
+{
+    echo 'DB_HOST:"localhost"'
+    echo 'DB_PORT:"5432"'
+    echo 'DB_USER:"postgres"'
+    echo 'DB_PASSWORD:"postgres"'
+    echo 'DB_NAME:"dushyant"'
+    echo 'APP_PORT:"8080"'
+    echo 'FILE_PATH:"/opt/users.csv"'
+} >> .env
