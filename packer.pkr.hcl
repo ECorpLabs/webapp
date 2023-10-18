@@ -40,7 +40,7 @@ variable device_name {
   default = "/dev/xvda"
 }
 
-variable volume_type{
+variable volume_type {
   type    = string
   default = "gp2"
 }
@@ -51,7 +51,7 @@ variable script_path {
 }
 
 variable "file_paths" {
-  type    = list(string)
+  type = list(string)
   default = [
     "./webapp",
     "./data/users.csv",
@@ -98,7 +98,7 @@ build {
   sources = ["source.amazon-ebs.debian12"]
 
   provisioner "file" {
-    sources = var.file_paths
+    sources     = var.file_paths
     destination = var.destination_path
   }
 
