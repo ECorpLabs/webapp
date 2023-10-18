@@ -12,9 +12,10 @@ sudo tar -C /usr/local -xvf go1.21.1.linux-amd64.tar.gz
 echo export PATH=$PATH:/usr/local/go/bin >> ~/.bashrc
 source ~/.bashrc
 
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 
 mv /tmp/webapp /home/admin/webapp
-mv /tmp/users.csv /opt/users.csv
+sudo mv /tmp/users.csv /opt/users.csv
 
 {
     echo 'DB_HOST:"localhost"'
