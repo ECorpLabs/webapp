@@ -71,4 +71,4 @@ jobs:
     
     - name: Validate Packer Configuration
       run: |
-          packer validate packer.pkr.hcl
+          packer validate -var-file=packer.pkrvars.hcl packer.pkr.hcl
