@@ -44,7 +44,6 @@ source "amazon-ebs" "debian12" {
     volume_size           = var.volume_size
     volume_type           = var.volume_type
   }
-}
 
 build {
   sources = ["source.amazon-ebs.debian12"]
