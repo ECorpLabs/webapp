@@ -1,6 +1,6 @@
 # Golang WebApp
 
-This repository contains a Golang-based REST API project integrated with a PostgreSQL database. Additionally, it includes configuration files for building an AWS AMI using Packer.
+This repository contains a Golang-based REST API project integrated with a PostgreSQL database. Additionally, it includes configuration files(workflows) for building an AWS AMI using Packer.
 
 ## Table of Contents
   
