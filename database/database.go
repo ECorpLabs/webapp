@@ -18,12 +18,12 @@ func Connect() error {
 	databaseName := os.Getenv("DB_NAME")
 	port := os.Getenv("DB_PORT")
 
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Africa/Lagos", host, username, password, databaseName, port)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s TimeZone=Africa/Lagos", host, username, password, databaseName, port)
 	Database, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	//create database if does not exist
 	if err != nil {
 		// Try to connect without specifying a database name
-		dsn = fmt.Sprintf("host=%s user=%s password=%s port=%s sslmode=disable TimeZone=Africa/Lagos", host, username, password, port)
+		dsn = fmt.Sprintf("host=%s user=%s password=%s port=%s TimeZone=Africa/Lagos", host, username, password, port)
 		Database, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 		if err != nil {
