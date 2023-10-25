@@ -19,6 +19,9 @@ func NewAssignmentController() *AssignmentController {
 }
 
 func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup) {
+	unsupportedMethod := func(c *gin.Context) {
+		c.Writer.WriteHeader(http.StatusMethodNotAllowed)
+	}
 	// Group routes under "/assignments"
 	assignmentsGroup := router.Group("/assignments")
 	assignmentsGroup.PATCH("", func(c *gin.Context) {
@@ -29,6 +32,8 @@ func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup) {
 
 	// Define assignment routes
 	assignmentsGroup.POST("", ac.CreateAssignment)
+	assignmentsGroup.PATCH("", unsupportedMethod)
+	assignmentsGroup.PATCH("/:id", unsupportedMethod)
 	assignmentsGroup.PUT("/:id", ac.UpdateAssignment)
 	assignmentsGroup.DELETE("/:id", ac.DeleteAssignment)
 	assignmentsGroup.GET("/:id", ac.GetAssignment)

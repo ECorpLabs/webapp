@@ -16,15 +16,22 @@ source ~/.bashrc
 
 sudo groupadd csye6225
 sudo useradd -s /bin/false -g csye6225 -d /opt/csye6225 -m csye6225
-# sudo cp csye6225.service /etc/systemd/system
-systemctl daemon-reload
-sudo systemctl enable csye6225
-sudo systemctl start csye6225
-sudo systemctl restart csye6225
-sudo systemctl stop csye6225
 
-mv /tmp/webapp /opt/webapp
-sudo mv /tmp/users.csv /opt/users.csv
+sudo mv /tmp/webapp /opt/csye6225/
+sudo mv /tmp/users.csv /opt/
+sudo mv /tmp/system.service /etc/systemd/system/
+
+sudo touch /opt/csye6225/.env
+sudo chown csye6225:csye6225 /opt/csye6225/.env
+
+sudo systemctl daemon-reload
+sudo systemctl enable system
+# sudo systemctl start system
+# sudo systemctl restart csye6225
+# sudo systemctl stop csye6225
+
+
+
 
 # {
 #     echo 'DB_HOST:"localhost"'

@@ -1,0 +1,19 @@
+[Unit]
+Description= Webapp
+ConditionPathExists=/opt/csye6225/webapp
+Requires=cloud-init.service
+After=cloud-final.service
+
+[Service]
+Type=simple
+User=csye6225
+Group=csye6225
+WorkingDirectory=/opt/csye6225
+ExecStart=/opt/csye6225/webapp
+Restart=always
+RestartSec=5s
+TimeoutSec=10s
+EnvironmentFile=/opt/csye6225/.env
+
+[Install]
+WantedBy=cloud-init.target
