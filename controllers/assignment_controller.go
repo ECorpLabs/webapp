@@ -32,7 +32,6 @@ func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup) {
 
 	// Define assignment routes
 	assignmentsGroup.POST("", ac.CreateAssignment)
-	assignmentsGroup.PATCH("", unsupportedMethod)
 	assignmentsGroup.PATCH("/:id", unsupportedMethod)
 	assignmentsGroup.PUT("/:id", ac.UpdateAssignment)
 	assignmentsGroup.DELETE("/:id", ac.DeleteAssignment)
