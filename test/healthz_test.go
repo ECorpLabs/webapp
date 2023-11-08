@@ -29,7 +29,7 @@ func (s *HealthTestSuite) SetupSuite() {
 	healthzGroup := app.Group("/healthz")
 	{
 		// Register health routes under /healthz
-		controller.RegisterHealthRoutes(healthzGroup)
+		controller.RegisterHealthRoutes(healthzGroup, nil)
 	}
 	s.App = app
 }
