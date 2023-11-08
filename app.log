@@ -1,0 +1,13 @@
+{"level":"error","ts":1699471831.934674,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"info","ts":1699471866.576236,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"POST","url":"/healthz"}
+{"level":"error","ts":1699471866.576538,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
+{"level":"info","ts":1699471882.481981,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"POST","url":"/healthz"}
+{"level":"error","ts":1699471882.482878,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
+{"level":"error","ts":1699471980.162527,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"info","ts":1699471985.484416,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"POST","url":"/healthz"}
+{"level":"error","ts":1699471985.484491,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
+{"level":"info","ts":1699471988.607557,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"PATCH","url":"/healthz"}
+{"level":"error","ts":1699471988.6076748,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"PATCH","url":"/healthz"}
+{"level":"info","ts":1699471995.384116,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"DELETE","url":"/healthz"}
+{"level":"error","ts":1699471995.384253,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"DELETE","url":"/healthz"}
+{"level":"error","ts":1699472238.4705348,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}

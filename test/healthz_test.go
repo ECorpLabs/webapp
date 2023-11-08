@@ -5,6 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 	controller "webapp/controllers"
+	"webapp/logger"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -23,6 +24,8 @@ func TestHealthTestSuite(t *testing.T) {
 func (s *HealthTestSuite) SetupSuite() {
 
 	loadEnv()
+	//get logger instance
+	logger.Init()
 
 	app := gin.New()
 
