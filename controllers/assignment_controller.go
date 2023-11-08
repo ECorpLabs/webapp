@@ -5,6 +5,8 @@ import (
 	"time"
 	"webapp/database"
 
+	client "webapp/logger"
+
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"go.uber.org/zap"
@@ -46,6 +48,7 @@ func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup, logger *
 
 	unsupportedMethod := func(c *gin.Context) {
 		logError(c, http.StatusMethodNotAllowed, "Method Not Allowed")
+		client.GetMetricsClient().Incr("web.patch", 1)
 	}
 	// Group routes under "/assignments"
 	assignmentsGroup := router.Group("/assignments")
@@ -67,6 +70,7 @@ func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup, logger *
 func (ac *AssignmentController) CreateAssignment(c *gin.Context) {
 	// Implement assignment creation logic
 	// Example: c.JSON(http.StatusOK, gin.H{"message": "Assignment created successfully"})
+	client.GetMetricsClient().Incr("web.post", 1)
 	account_id := c.GetString("account_id")
 	var input database.Assignment
 
@@ -91,6 +95,7 @@ func (ac *AssignmentController) CreateAssignment(c *gin.Context) {
 		return
 	} else {
 		//Returning assignment created response and return the assignment created
+		zap.L().Info("Assignment created successfully", zap.String("id", id))
 		c.JSON(http.StatusCreated, assignment)
 
 	}
@@ -98,6 +103,7 @@ func (ac *AssignmentController) CreateAssignment(c *gin.Context) {
 
 func (ac *AssignmentController) UpdateAssignment(c *gin.Context) {
 	// Implement assignment update logic
+	client.GetMetricsClient().Incr("web.put", 1)
 	id := c.Param("id")
 	account_id := c.GetString("account_id")
 
@@ -131,12 +137,13 @@ func (ac *AssignmentController) UpdateAssignment(c *gin.Context) {
 		logError(c, http.StatusBadRequest, err.Error())
 		return
 	}
-
+	zap.L().Info("Assignment updated successfully", zap.String("id", id))
 	c.Status(http.StatusNoContent)
 }
 
 func (ac *AssignmentController) DeleteAssignment(c *gin.Context) {
 	// Implement assignment deletion logic
+	client.GetMetricsClient().Incr("web.delete", 1)
 	id := c.Param("id")
 	accountID := c.GetString("account_id") // Assuming account_id is set during authentication
 
@@ -158,11 +165,13 @@ func (ac *AssignmentController) DeleteAssignment(c *gin.Context) {
 		logError(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	zap.L().Info("Assignment deleted successfully", zap.String("id", id))
 	c.Status(http.StatusNoContent)
 }
 
 func (ac *AssignmentController) GetAssignment(c *gin.Context) {
 	// Implement assignment retrieval logic
+	client.GetMetricsClient().Incr("web.get", 1)
 	id := c.Param("id")
 
 	// Check if assignment with given ID exists
@@ -171,17 +180,19 @@ func (ac *AssignmentController) GetAssignment(c *gin.Context) {
 		logError(c, http.StatusNotFound, "Assignment not found")
 		return
 	}
-
+	zap.L().Info("Assignment retrieved successfully", zap.String("id", id))
 	c.JSON(http.StatusOK, assignment)
 }
 
 func (ac *AssignmentController) GetAssignments(c *gin.Context) {
 	// Implement fetching all assignments logic
+	client.GetMetricsClient().Incr("web.get", 1)
 	var assignments []database.Assignment
 	if err := database.Database.Find(&assignments).Error; err != nil {
 		logError(c, http.StatusBadRequest, err.Error())
 		return
 	} else {
+		zap.L().Info("Assignments retrieved successfully")
 		c.JSON(http.StatusOK, assignments)
 	}
 }

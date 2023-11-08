@@ -4,12 +4,15 @@ import (
 	"net/http"
 
 	"webapp/database"
+	client "webapp/logger"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
 
 func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
+
+	client.GetMetricsClient().Incr("web.request", 1)
 
 	logRequest := func(c *gin.Context) {
 		logger.Info("Request received",
@@ -32,6 +35,7 @@ func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 	}
 
 	group.GET("", logRequest, func(c *gin.Context) {
+		client.GetMetricsClient().Incr("web.get", 1)
 		if c.Request.Body != http.NoBody || len(c.Request.URL.Query()) > 0 {
 			logError(c, http.StatusBadRequest, "Status Bad Request")
 			return
@@ -44,8 +48,20 @@ func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 		c.Writer.WriteHeader(http.StatusOK)
 	})
 
-	group.POST("", logRequest, unsupportedMethod)
-	group.PUT("", logRequest, unsupportedMethod)
-	group.DELETE("", logRequest, unsupportedMethod)
-	group.PATCH("", logRequest, unsupportedMethod)
+	group.POST("", logRequest, func(c *gin.Context) {
+		client.GetMetricsClient().Incr("web.post", 1)
+		unsupportedMethod(c)
+	})
+	group.PUT("", logRequest, func(c *gin.Context) {
+		client.GetMetricsClient().Incr("web.put", 1)
+		unsupportedMethod(c)
+	})
+	group.DELETE("", logRequest, func(c *gin.Context) {
+		client.GetMetricsClient().Incr("web.delete", 1)
+		unsupportedMethod(c)
+	})
+	group.PATCH("", logRequest, func(ctx *gin.Context) {
+		client.GetMetricsClient().Incr("web.patch", 1)
+		unsupportedMethod(ctx)
+	})
 }

@@ -6,6 +6,7 @@ import (
 	nocache "webapp/api/handler"
 	"webapp/controllers"
 	database "webapp/database"
+	client "webapp/logger"
 
 	zap "go.uber.org/zap"
 
@@ -17,10 +18,13 @@ import (
 func main() {
 	loadEnv()
 
+	// Initialize the metrics logger
+	client.Init()
+
 	// Create a logger
 	config := zap.NewProductionConfig()
 	config.OutputPaths = []string{
-		"logs/app.log",
+		os.Getenv("LOG_FILE_PATH"),
 	}
 	config.DisableStacktrace = true
 	logger := zap.Must(config.Build())
@@ -49,6 +53,7 @@ func main() {
 	router.Use(nocache.NoCache())
 	router.Use(func(c *gin.Context) {
 		c.Set("logger", logger)
+		// metricsClient.Incr("web.request", 1)
 		c.Next()
 	})
 
@@ -68,6 +73,7 @@ func main() {
 	}
 
 	router.Run(":" + os.Getenv("APP_PORT"))
+	defer client.GetMetricsClient().Close()
 }
 
 func loadEnv() {
