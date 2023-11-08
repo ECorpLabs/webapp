@@ -10,12 +10,10 @@ import (
 	"go.uber.org/zap"
 )
 
-func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
-
-	client.GetMetricsClient().Incr("web.request", 1)
+func RegisterHealthRoutes(group *gin.RouterGroup) {
 
 	logRequest := func(c *gin.Context) {
-		logger.Info("Request received",
+		zap.L().Info("Request received",
 			zap.String("method", c.Request.Method),
 			zap.String("url", c.Request.URL.String()),
 		)
@@ -23,7 +21,7 @@ func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 	}
 
 	logError := func(c *gin.Context, statusCode int, errorMessage string) {
-		logger.Error(errorMessage,
+		zap.L().Error(errorMessage,
 			zap.String("method", c.Request.Method),
 			zap.String("url", c.Request.URL.String()),
 		)
@@ -35,7 +33,7 @@ func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 	}
 
 	group.GET("", logRequest, func(c *gin.Context) {
-		client.GetMetricsClient().Incr("web.get", 1)
+
 		if c.Request.Body != http.NoBody || len(c.Request.URL.Query()) > 0 {
 			logError(c, http.StatusBadRequest, "Status Bad Request")
 			return
@@ -46,6 +44,7 @@ func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 			return
 		}
 		c.Writer.WriteHeader(http.StatusOK)
+		client.GetMetricsClient().Incr("web.get", 1)
 	})
 
 	group.POST("", logRequest, func(c *gin.Context) {

@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/suite"
-	"go.uber.org/zap"
 )
 
 type HealthTestSuite struct {
@@ -30,7 +29,7 @@ func (s *HealthTestSuite) SetupSuite() {
 	healthzGroup := app.Group("/healthz")
 	{
 		// Register health routes under /healthz
-		controller.RegisterHealthRoutes(healthzGroup, &zap.Logger{})
+		controller.RegisterHealthRoutes(healthzGroup)
 	}
 	s.App = app
 }
