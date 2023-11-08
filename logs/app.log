@@ -1,0 +1,6 @@
+{"level":"info","ts":1699405892.386813,"caller":"controllers/assignment_controller.go:33","msg":"Request received","method":"PUT","url":"/v1/assignments/fdbdded0-90d5-490a-9edf-07c1a3bbc5e6"}
+{"level":"error","ts":1699405892.476761,"caller":"controllers/assignment_controller.go:23","msg":"Assignment not found","method":"PUT","url":"/v1/assignments/fdbdded0-90d5-490a-9edf-07c1a3bbc5e6"}
+{"level":"info","ts":1699405909.945025,"caller":"controllers/assignment_controller.go:33","msg":"Request received","method":"GET","url":"/v1/assignments"}
+{"level":"info","ts":1699405936.8961642,"caller":"controllers/assignment_controller.go:33","msg":"Request received","method":"PUT","url":"/v1/assignments/e012b000-edff-45a0-9f16-e58e300e200c"}
+{"level":"info","ts":1699405949.670169,"caller":"controllers/assignment_controller.go:33","msg":"Request received","method":"PUT","url":"/v1/assignments/e012b000-edff-45a0-9f16-e58e300e200c"}
+{"level":"error","ts":1699405949.7475042,"caller":"controllers/assignment_controller.go:23","msg":"Key: 'Assignment.Points' Error:Field validation for 'Points' failed on the 'required' tag","method":"PUT","url":"/v1/assignments/e012b000-edff-45a0-9f16-e58e300e200c"}
