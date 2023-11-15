@@ -25,8 +25,10 @@ func logError(c *gin.Context, statusCode int, errorMessage string) {
 	logger.Error(errorMessage,
 		zap.String("method", c.Request.Method),
 		zap.String("url", c.Request.URL.String()),
+		zap.Int("status", c.Writer.Status()),
 	)
 	c.JSON(statusCode, gin.H{"error": errorMessage})
+
 }
 
 func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup, logger *zap.Logger) {
@@ -35,8 +37,12 @@ func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup, logger *
 		logger.Info("Request received",
 			zap.String("method", c.Request.Method),
 			zap.String("url", c.Request.URL.String()),
+			zap.Int("status", c.Writer.Status()),
 		)
 		c.Next()
+		logger.Info("Response sent",
+			zap.Int("status", c.Writer.Status()),
+		)
 	}
 	// logError := func(c *gin.Context, statusCode int, errorMessage string) {
 	// 	logger.Error(errorMessage,

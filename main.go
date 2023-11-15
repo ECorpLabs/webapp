@@ -51,8 +51,9 @@ func main() {
 	// Create a router
 	router := gin.Default()
 	router.Use(nocache.NoCache())
+
 	router.Use(func(c *gin.Context) {
-		// c.Set("logger", logger)
+		c.Set("logger", logger)
 		// metricsClient.Incr("web.request", 1)
 		c.Next()
 	})
@@ -62,9 +63,11 @@ func main() {
 	healthzGroup := router.Group("/healthz")
 	{
 		// Register health routes under /healthz
-		controllers.RegisterHealthRoutes(healthzGroup)
+
+		controllers.RegisterHealthRoutes(healthzGroup, logger)
 	}
 	// Create a group for authenticated users
+
 	authGroup := router.Group("/v1/")
 	{
 		// Initialize AssignmentController and register its routes

@@ -1,13 +1,22 @@
-{"level":"error","ts":1699471831.934674,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
-{"level":"info","ts":1699471866.576236,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"POST","url":"/healthz"}
-{"level":"error","ts":1699471866.576538,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
-{"level":"info","ts":1699471882.481981,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"POST","url":"/healthz"}
-{"level":"error","ts":1699471882.482878,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
-{"level":"error","ts":1699471980.162527,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
-{"level":"info","ts":1699471985.484416,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"POST","url":"/healthz"}
-{"level":"error","ts":1699471985.484491,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
-{"level":"info","ts":1699471988.607557,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"PATCH","url":"/healthz"}
-{"level":"error","ts":1699471988.6076748,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"PATCH","url":"/healthz"}
-{"level":"info","ts":1699471995.384116,"caller":"controllers/health_controller.go:18","msg":"Request received","method":"DELETE","url":"/healthz"}
-{"level":"error","ts":1699471995.384253,"caller":"controllers/health_controller.go:26","msg":"Method Not Allowed","method":"DELETE","url":"/healthz"}
-{"level":"error","ts":1699472238.4705348,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"info","ts":1700021966.733962,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"POST","url":"/healthz"}
+{"level":"error","ts":1700021966.734169,"caller":"controllers/health_controller.go:27","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
+{"level":"info","ts":1700021966.734354,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":405}
+{"level":"info","ts":1700021969.452298,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1700021969.458735,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1700021973.353173,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1700021973.361753,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1700021983.079447,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1700021983.165875,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":201}
+{"level":"info","ts":1700021992.0384471,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1700021992.122466,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1700021998.272733,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"PATCH","url":"/v1/assignments","status":200}
+{"level":"error","ts":1700021998.272824,"caller":"controllers/assignment_controller.go:25","msg":"Method Not Allowed","method":"PATCH","url":"/v1/assignments","status":200}
+{"level":"info","ts":1700021998.2728581,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":405}
+{"level":"info","ts":1700022004.123519,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"error","ts":1700022004.203512,"caller":"controllers/assignment_controller.go:25","msg":"EOF","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1700022004.203588,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1700022016.6225789,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1700022016.698526,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1700022018.88885,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"PUT","url":"/v1/assignments/316b8d37-34cd-447a-8c10-431daaf216d9","status":200}
+{"level":"error","ts":1700022018.96872,"caller":"controllers/assignment_controller.go:25","msg":"Assignment not found","method":"PUT","url":"/v1/assignments/316b8d37-34cd-447a-8c10-431daaf216d9","status":200}
+{"level":"info","ts":1700022018.968766,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":404}
