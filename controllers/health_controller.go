@@ -41,7 +41,9 @@ func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 			logError(c, http.StatusBadRequest, "Status Bad Request")
 			return
 		}
-		err := database.Connect()
+		// err := database.Connect()
+		// ping the database to check connection
+		err := database.Database.Exec("SELECT 1").Error
 		if err != nil {
 			logError(c, http.StatusServiceUnavailable, "Status Service Unavailable")
 			return
