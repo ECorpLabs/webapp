@@ -5,6 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 	controller "webapp/controllers"
+	"webapp/database"
 	client "webapp/logger"
 
 	"github.com/gin-gonic/gin"
@@ -31,6 +32,11 @@ func (s *HealthTestSuite) SetupSuite() {
 	defer logger.Sync()
 
 	app := gin.New()
+	//Connect to the database
+	err := database.Connect()
+	if err != nil {
+		logger.Error("Error connecting to the database", zap.Error(err))
+	}
 
 	healthzGroup := app.Group("/healthz")
 	{
