@@ -10,18 +10,21 @@ import (
 	"go.uber.org/zap"
 )
 
-func RegisterHealthRoutes(group *gin.RouterGroup) {
+func RegisterHealthRoutes(group *gin.RouterGroup, logger *zap.Logger) {
 
 	logRequest := func(c *gin.Context) {
-		zap.L().Info("Request received",
+		logger.Info("Request received",
 			zap.String("method", c.Request.Method),
 			zap.String("url", c.Request.URL.String()),
 		)
 		c.Next()
+		logger.Info("Response sent",
+			zap.Int("status", c.Writer.Status()),
+		)
 	}
 
 	logError := func(c *gin.Context, statusCode int, errorMessage string) {
-		zap.L().Error(errorMessage,
+		logger.Error(errorMessage,
 			zap.String("method", c.Request.Method),
 			zap.String("url", c.Request.URL.String()),
 		)
@@ -59,8 +62,8 @@ func RegisterHealthRoutes(group *gin.RouterGroup) {
 		client.GetMetricsClient().Incr("web.delete", 1)
 		unsupportedMethod(c)
 	})
-	group.PATCH("", logRequest, func(ctx *gin.Context) {
+	group.PATCH("", logRequest, func(c *gin.Context) {
 		client.GetMetricsClient().Incr("web.patch", 1)
-		unsupportedMethod(ctx)
+		unsupportedMethod(c)
 	})
 }

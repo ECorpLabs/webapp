@@ -5,11 +5,12 @@ import (
 	"net/http/httptest"
 	"testing"
 	controller "webapp/controllers"
-	"webapp/logger"
+	client "webapp/logger"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/suite"
+	"go.uber.org/zap"
 )
 
 type HealthTestSuite struct {
@@ -25,14 +26,16 @@ func (s *HealthTestSuite) SetupSuite() {
 
 	loadEnv()
 	//get logger instance
-	logger.Init()
+	client.Init()
+	logger := zap.Must(zap.NewProduction())
+	defer logger.Sync()
 
 	app := gin.New()
 
 	healthzGroup := app.Group("/healthz")
 	{
 		// Register health routes under /healthz
-		controller.RegisterHealthRoutes(healthzGroup)
+		controller.RegisterHealthRoutes(healthzGroup, logger)
 	}
 	s.App = app
 }
