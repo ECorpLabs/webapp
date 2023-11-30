@@ -1,9 +1,13 @@
 package controllers
 
 import (
+	"encoding/json"
+	"errors"
 	"net/http"
+	"strings"
 	"time"
 	"webapp/database"
+	"webapp/sns"
 
 	client "webapp/logger"
 
@@ -29,6 +33,26 @@ func logError(c *gin.Context, statusCode int, errorMessage string) {
 	)
 	c.JSON(statusCode, gin.H{"error": errorMessage})
 
+}
+
+func GetUserEmailByID(accountID string) (string, error) {
+	var account database.Account
+	if err := database.Database.Where("id = ?", accountID).First(&account).Error; err != nil {
+		return "", errors.New("user not found")
+	}
+	return account.Email, nil
+}
+
+func isZIP(url string) bool {
+	resp, err := http.Head(url)
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+
+	contentType := resp.Header.Get("Content-Type")
+	return strings.EqualFold(contentType, "application/zip")
+	//check content length is not zero
 }
 
 func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup, logger *zap.Logger) {
@@ -68,6 +92,7 @@ func (ac *AssignmentController) RegisterRoutes(router *gin.RouterGroup, logger *
 	assignmentsGroup.PATCH("/:id", unsupportedMethod)
 	assignmentsGroup.PUT("/:id", ac.UpdateAssignment)
 	assignmentsGroup.DELETE("/:id", ac.DeleteAssignment)
+	assignmentsGroup.POST("/:id/submission", ac.SubmitAssignment)
 	assignmentsGroup.GET("/:id", ac.GetAssignment)
 	assignmentsGroup.GET("", ac.GetAssignments)
 
@@ -87,14 +112,14 @@ func (ac *AssignmentController) CreateAssignment(c *gin.Context) {
 	}
 	id := uuid.New().String()
 	assignment := database.Assignment{
-		ID:                id,
-		Name:              input.Name,
-		Points:            input.Points,
-		NumOfAttempts:     input.NumOfAttempts,
-		Deadline:          input.Deadline,
-		AssignmentCreated: time.Now().UTC(),
-		AssignmentUpdated: time.Now().UTC(),
-		AccountID:         account_id,
+		ID:                 id,
+		Name:               input.Name,
+		Points:             input.Points,
+		NumOfAttempts:      input.NumOfAttempts,
+		Deadline:           input.Deadline,
+		Assignment_Created: time.Now().UTC(),
+		Assignment_Updated: time.Now().UTC(),
+		AccountID:          account_id,
 	}
 	if err := database.Database.Save(&assignment).Error; err != nil {
 		logError(c, http.StatusBadRequest, err.Error())
@@ -103,7 +128,6 @@ func (ac *AssignmentController) CreateAssignment(c *gin.Context) {
 		//Returning assignment created response and return the assignment created
 		zap.L().Info("Assignment created successfully", zap.String("id", id))
 		c.JSON(http.StatusCreated, assignment)
-
 	}
 }
 
@@ -136,7 +160,7 @@ func (ac *AssignmentController) UpdateAssignment(c *gin.Context) {
 	existingAssignment.Points = newAssignment.Points
 	existingAssignment.NumOfAttempts = newAssignment.NumOfAttempts
 	existingAssignment.Deadline = newAssignment.Deadline
-	existingAssignment.AssignmentUpdated = time.Now().UTC()
+	existingAssignment.Assignment_Updated = time.Now().UTC()
 
 	// Save the updated assignment
 	if err := database.Database.Save(&existingAssignment).Error; err != nil {
@@ -179,15 +203,21 @@ func (ac *AssignmentController) GetAssignment(c *gin.Context) {
 	// Implement assignment retrieval logic
 	client.GetMetricsClient().Incr("web.get", 1)
 	id := c.Param("id")
+	account_id := c.GetString("account_id")
 
 	// Check if assignment with given ID exists
-	var assignment database.Assignment
-	if err := database.Database.First(&assignment, "id = ?", id).Error; err != nil {
+	var existingAssignment database.Assignment
+	if err := database.Database.First(&existingAssignment, "id = ?", id).Error; err != nil {
 		logError(c, http.StatusNotFound, "Assignment not found")
 		return
 	}
+	if existingAssignment.AccountID != account_id {
+		logError(c, http.StatusForbidden, "Permission denied: User does not own this assignment")
+		return
+	}
+
 	zap.L().Info("Assignment retrieved successfully", zap.String("id", id))
-	c.JSON(http.StatusOK, assignment)
+	c.JSON(http.StatusOK, existingAssignment)
 }
 
 func (ac *AssignmentController) GetAssignments(c *gin.Context) {
@@ -201,4 +231,144 @@ func (ac *AssignmentController) GetAssignments(c *gin.Context) {
 		zap.L().Info("Assignments retrieved successfully")
 		c.JSON(http.StatusOK, assignments)
 	}
+}
+
+func (ac *AssignmentController) SubmitAssignment(c *gin.Context) {
+	// Implement assignment submission logic
+	client.GetMetricsClient().Incr("web.post", 1)
+	assignment_id := c.Param("id")
+	account_id := c.GetString("account_id")
+	var input database.Submission
+	var assignment database.Assignment
+
+	userEmail, err := GetUserEmailByID(account_id)
+	if err != nil {
+		logError(c, http.StatusInternalServerError, "Failed to fetch user email")
+		return
+	}
+
+	var status string
+	id := uuid.New().String()
+
+	defer func() {
+		//publish message to sns with the user details
+		userDetails := struct {
+			SubmissionID  string `json:"submission_id"`
+			UserEmail     string `json:"user_email"`
+			NumOfAttempts int    `json:"number_of_attempts"`
+			SubmissionUrl string `json:"submission_url"`
+			AssignmentID  string `json:"assignment_id"`
+			Status        string `json:"status"`
+		}{
+			SubmissionID:  id, // Assuming `id` is the submission ID
+			UserEmail:     userEmail,
+			NumOfAttempts: assignment.NumOfAttempts, // User's email fetched from the database
+			SubmissionUrl: input.SubmissionUrl,
+			AssignmentID:  assignment_id,
+			Status:        status,
+		}
+		// Convert userDetails to JSON
+		userDetailsJSON, err := json.Marshal(userDetails)
+		if err != nil {
+			logError(c, http.StatusInternalServerError, "Failed to prepare user details")
+			return
+		}
+
+		// Publish the message to SNS
+		snsErr := sns.PublishToSNS(string(userDetailsJSON))
+		if snsErr != nil {
+			logError(c, http.StatusInternalServerError, snsErr.Error())
+		}
+	}()
+	// Bind the JSON data to the input struct
+	if err := c.ShouldBindJSON(&input); err != nil {
+		logError(c, http.StatusBadRequest, err.Error())
+		status = "INVALIDJSON"
+		return
+	}
+	if !isZIP(input.SubmissionUrl) {
+		logError(c, http.StatusBadRequest, "Invalid file format or empty ZIP file. Please submit a ZIP file url with content.")
+		status = "INVALIDZIP"
+		return
+	}
+
+	var count int64
+	if err := database.Database.Model(&database.Submission{}).
+		Where("assignment_id = ? AND account_id = ?", assignment_id, account_id).
+		Count(&count).Error; err != nil {
+		logError(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	// var assignment database.Assignment
+	if err := database.Database.First(&assignment, "id = ?", assignment_id).Error; err != nil {
+		logError(c, http.StatusNotFound, "Assignment not found")
+		status = "ASSNOTFOUND"
+		return
+	}
+
+	if count >= int64(assignment.NumOfAttempts) {
+		logError(c, http.StatusForbidden, "Number of attempts exceeded for this assignment")
+		status = "EXCEEDEDATTEMPTS"
+		return
+	}
+
+	deadlineTime, _ := time.Parse(time.RFC3339, assignment.Deadline.Format(time.RFC3339))
+
+	if time.Now().UTC().After(deadlineTime) {
+		logError(c, http.StatusForbidden, "Assignment submission deadline has passed")
+		status = "DEADLINEPASSED"
+		return
+	}
+
+	submission := database.Submission{
+		ID:                 id,
+		Assignment_Id:      assignment_id,
+		SubmissionUrl:      input.SubmissionUrl,
+		Submission_Date:    time.Now().UTC(),
+		Submission_Updated: time.Now().UTC(),
+		AccountID:          account_id,
+	}
+
+	if err := database.Database.Save(&submission).Error; err != nil {
+		logError(c, http.StatusBadRequest, err.Error())
+		return
+	} else {
+		//Returning assignment created response and return the assignment created
+		zap.L().Info("Submission Accepted", zap.String("id", id))
+		c.JSON(http.StatusCreated, submission)
+		status = "SUBMISSIONACCEPTED"
+	}
+
+	// //publish message to sns with the user details
+	// userDetails := struct {
+	// 	SubmissionID  string `json:"submission_id"`
+	// 	UserEmail     string `json:"user_email"`
+	// 	NumOfAttempts int    `json:"number_of_attempts"`
+	// 	SubmissionUrl string `json:"submission_url"`
+	// 	AssignmentID  string `json:"assignment_id"`
+	// 	Status        string `json:"status"`
+	// }{
+	// 	SubmissionID:  id, // Assuming `id` is the submission ID
+	// 	UserEmail:     userEmail,
+	// 	NumOfAttempts: assignment.NumOfAttempts, // User's email fetched from the database
+	// 	SubmissionUrl: input.SubmissionUrl,
+	// 	AssignmentID:  assignment_id,
+	// 	Status:        status,
+	// }
+	// // Convert userDetails to JSON
+	// userDetailsJSON, err := json.Marshal(userDetails)
+	// if err != nil {
+	// 	logError(c, http.StatusInternalServerError, "Failed to prepare user details")
+	// 	return
+	// }
+
+	// defer func() {
+	// 	// Publish the message to SNS
+	// 	snsErr := sns.PublishToSNS(string(userDetailsJSON))
+	// 	if snsErr != nil {
+	// 		logError(c, http.StatusInternalServerError, snsErr.Error())
+	// 	}
+	// }()
+
 }
