@@ -1,22 +1,232 @@
-{"level":"info","ts":1700021966.733962,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"POST","url":"/healthz"}
-{"level":"error","ts":1700021966.734169,"caller":"controllers/health_controller.go:27","msg":"Method Not Allowed","method":"POST","url":"/healthz"}
-{"level":"info","ts":1700021966.734354,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":405}
-{"level":"info","ts":1700021969.452298,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
-{"level":"info","ts":1700021969.458735,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
-{"level":"info","ts":1700021973.353173,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
-{"level":"info","ts":1700021973.361753,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
-{"level":"info","ts":1700021983.079447,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
-{"level":"info","ts":1700021983.165875,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":201}
-{"level":"info","ts":1700021992.0384471,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
-{"level":"info","ts":1700021992.122466,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
-{"level":"info","ts":1700021998.272733,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"PATCH","url":"/v1/assignments","status":200}
-{"level":"error","ts":1700021998.272824,"caller":"controllers/assignment_controller.go:25","msg":"Method Not Allowed","method":"PATCH","url":"/v1/assignments","status":200}
-{"level":"info","ts":1700021998.2728581,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":405}
-{"level":"info","ts":1700022004.123519,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
-{"level":"error","ts":1700022004.203512,"caller":"controllers/assignment_controller.go:25","msg":"EOF","method":"POST","url":"/v1/assignments","status":200}
-{"level":"info","ts":1700022004.203588,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
-{"level":"info","ts":1700022016.6225789,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
-{"level":"info","ts":1700022016.698526,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
-{"level":"info","ts":1700022018.88885,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"PUT","url":"/v1/assignments/316b8d37-34cd-447a-8c10-431daaf216d9","status":200}
-{"level":"error","ts":1700022018.96872,"caller":"controllers/assignment_controller.go:25","msg":"Assignment not found","method":"PUT","url":"/v1/assignments/316b8d37-34cd-447a-8c10-431daaf216d9","status":200}
-{"level":"info","ts":1700022018.968766,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":404}
+{"level":"error","ts":1701017157.345516,"caller":"webapp/main.go:48","msg":"Error seeding the database","error":"open /Users/dushyant/Documents/Assignments/sem_3/CSYE_6225/opt/users.csv: no such file or directory"}
+{"level":"info","ts":1701017190.848887,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1701017190.8494332,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1701017194.9185169,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701017194.9198232,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701017198.798684,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701017198.799527,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701017214.6539378,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701017214.6547709,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701017276.7121038,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701017276.802506,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701017282.0629408,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701017282.1396391,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":201}
+{"level":"info","ts":1701017308.995323,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701017309.084269,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701017668.56362,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14","status":200}
+{"level":"info","ts":1701017668.653952,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701017676.697778,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14","status":200}
+{"level":"info","ts":1701017676.778263,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1701017691.245022,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14","status":200}
+{"level":"info","ts":1701017691.325635,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1701017905.586455,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14","status":200}
+{"level":"info","ts":1701017905.6781921,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1701017914.517071,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14","status":200}
+{"level":"error","ts":1701017914.61006,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"GET","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14","status":200}
+{"level":"info","ts":1701017914.610141,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018024.8809469,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701018024.953999,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1701018083.0178251,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018083.090778,"caller":"controllers/assignment_controller.go:25","msg":"EOF","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018083.0908318,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1701018121.076205,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018121.169162,"caller":"controllers/assignment_controller.go:25","msg":"Key: 'Submission.Assignment_Id' Error:Field validation for 'Assignment_Id' failed on the 'required' tag","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018121.1692212,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1701018183.161841,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018183.231039,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018183.231102,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018219.4190269,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018219.5066948,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018219.506763,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018254.070463,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018254.159096,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701018274.21419,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018274.2879748,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":401}
+{"level":"info","ts":1701018282.636649,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018282.708856,"caller":"controllers/assignment_controller.go:25","msg":"unexpected EOF","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018282.708918,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1701018320.563818,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018320.63639,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018320.636462,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018338.63782,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"error","ts":1701018338.711631,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"POST","url":"/v1/assignments/32b82fa3-fcfb-4861-b123-e9ddc6860d14/submission","status":200}
+{"level":"info","ts":1701018338.711682,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018367.076216,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701018367.151477,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":201}
+{"level":"info","ts":1701018406.330928,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701018406.418476,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701018406.418533,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018457.2472582,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"error","ts":1701018457.320065,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"GET","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"info","ts":1701018457.320139,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018466.898856,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"info","ts":1701018466.9707131,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1701018518.3271098,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701018518.405044,"caller":"controllers/assignment_controller.go:25","msg":"Permission denied: User does not own this assignment","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701018518.405102,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":403}
+{"level":"info","ts":1701018576.798557,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701018576.8864372,"caller":"controllers/assignment_controller.go:25","msg":"ERROR: relation \"submissions\" does not exist (SQLSTATE 42P01)","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701018576.8865018,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1701018582.216164,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701018582.290376,"caller":"controllers/assignment_controller.go:25","msg":"ERROR: relation \"submissions\" does not exist (SQLSTATE 42P01)","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701018582.290431,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1701019102.694432,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"GET","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"info","ts":1701019102.7671418,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":200}
+{"level":"info","ts":1701019131.4204748,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701019131.496993,"caller":"controllers/assignment_controller.go:25","msg":"ERROR: relation \"submissions\" does not exist (SQLSTATE 42P01)","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701019131.497047,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":400}
+{"level":"info","ts":1701019224.943145,"caller":"controllers/assignment_controller.go:37","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701019225.033438,"caller":"controllers/assignment_controller.go:43","msg":"Response sent","status":201}
+{"level":"error","ts":1701044530.6836102,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"info","ts":1701044545.0796669,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1701044545.111603,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1701044655.915423,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044655.922248,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":401}
+{"level":"info","ts":1701044666.388847,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044666.3893602,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":401}
+{"level":"info","ts":1701044682.7914891,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044682.792216,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":401}
+{"level":"info","ts":1701044693.2414532,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044693.241893,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":401}
+{"level":"info","ts":1701044696.771112,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701044696.771988,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":401}
+{"level":"info","ts":1701044726.158518,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1701044726.160852,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1701044728.181545,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701044728.256414,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":200}
+{"level":"info","ts":1701044734.530318,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044735.182677,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701044737.64023,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044737.857059,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701044739.2124412,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044739.4498932,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701044740.618607,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044740.873323,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701044743.4546628,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044743.664117,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701044746.383704,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701044746.4599779,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":200}
+{"level":"info","ts":1701044830.5965528,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"PUT","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"info","ts":1701044830.67972,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":204}
+{"level":"info","ts":1701044835.306585,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701044836.11384,"caller":"controllers/assignment_controller.go:26","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701044836.115146,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":403}
+{"level":"info","ts":1701045302.848577,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701045304.3434901,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701045308.749086,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701045309.395991,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701045310.2271519,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701045310.5015,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701045311.171273,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701045311.448618,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701045312.341825,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"error","ts":1701045312.9586828,"caller":"controllers/assignment_controller.go:26","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef/submission","status":200}
+{"level":"info","ts":1701045312.958784,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":403}
+{"level":"info","ts":1701045935.234184,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1701045935.235564,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1701045942.668283,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701045942.749286,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701046612.2180421,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701046612.304717,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":200}
+{"level":"info","ts":1701046615.4042828,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"GET","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"error","ts":1701046615.494536,"caller":"controllers/assignment_controller.go:26","msg":"Assignment not found","method":"GET","url":"/v1/assignments/9ba6c0e3-e263-4184-9055-9d5b26bd15ef","status":200}
+{"level":"info","ts":1701046615.494627,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":404}
+{"level":"info","ts":1701046648.957717,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701046649.2062411,"caller":"controllers/assignment_controller.go:26","msg":"Invalid file format. Please submit a ZIP file url.","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701046649.206826,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":400}
+{"level":"info","ts":1701046657.256701,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701046657.610841,"caller":"controllers/assignment_controller.go:26","msg":"Assignment submission deadline has passed","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701046657.611018,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":403}
+{"level":"info","ts":1701046664.011039,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701046664.1611578,"caller":"controllers/assignment_controller.go:26","msg":"Assignment submission deadline has passed","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701046664.1612182,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":403}
+{"level":"info","ts":1701046679.6186628,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701046679.6976378,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"info","ts":1701046682.7325351,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701046682.8084779,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":200}
+{"level":"info","ts":1701046700.997965,"caller":"controllers/assignment_controller.go:49","msg":"Request received","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"info","ts":1701046701.1946912,"caller":"controllers/assignment_controller.go:55","msg":"Response sent","status":201}
+{"level":"error","ts":1701225207.5558321,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"error","ts":1701279050.154855,"caller":"webapp/main.go:39","msg":"Error connecting to the database","error":"failed to connect to `host=localhost user=postgres database=`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"info","ts":1701279082.9017448,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1701279082.902752,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1701279105.354539,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701279105.43296,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":201}
+{"level":"info","ts":1701279136.435272,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701279136.916745,"caller":"controllers/assignment_controller.go:30","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701279136.917085,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":400}
+{"level":"info","ts":1701279262.691962,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701279263.1240408,"caller":"controllers/assignment_controller.go:30","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701279263.124296,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":400}
+{"level":"info","ts":1701279521.8111072,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701279521.8918788,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":200}
+{"level":"info","ts":1701279565.2856169,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701279565.796746,"caller":"controllers/assignment_controller.go:30","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701279565.79706,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":400}
+{"level":"info","ts":1701279587.809723,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"error","ts":1701279587.957879,"caller":"controllers/assignment_controller.go:30","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"info","ts":1701279587.9579892,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":400}
+{"level":"info","ts":1701279636.5642428,"caller":"controllers/assignment_controller.go:60","msg":"Request received","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"error","ts":1701279642.5226061,"caller":"controllers/assignment_controller.go:29","msg":"NoCredentialProviders: no valid providers in chain. Deprecated.\n\tFor verbose messaging see aws.Config.CredentialsChainVerboseErrors","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":201}
+{"level":"info","ts":1701279642.5229728,"caller":"controllers/assignment_controller.go:66","msg":"Response sent","status":201}
+{"level":"info","ts":1701279820.172694,"caller":"controllers/assignment_controller.go:60","msg":"Request received","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"info","ts":1701279820.8961432,"caller":"controllers/assignment_controller.go:66","msg":"Response sent","status":201}
+{"level":"info","ts":1701280522.579189,"caller":"controllers/assignment_controller.go:60","msg":"Request received","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"error","ts":1701280523.053314,"caller":"controllers/assignment_controller.go:29","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/c9397ca7-0de3-4136-906a-e026c55bf7a9/submission","status":200}
+{"level":"info","ts":1701280523.053578,"caller":"controllers/assignment_controller.go:66","msg":"Response sent","status":403}
+{"level":"info","ts":1701280544.848365,"caller":"controllers/assignment_controller.go:60","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701280545.22165,"caller":"controllers/assignment_controller.go:66","msg":"Response sent","status":201}
+{"level":"info","ts":1701280782.8903801,"caller":"controllers/assignment_controller.go:71","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701280783.4014149,"caller":"controllers/assignment_controller.go:30","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701280783.4018052,"caller":"controllers/assignment_controller.go:77","msg":"Response sent","status":400}
+{"level":"info","ts":1701280967.857148,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701280968.5702348,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701304868.630492,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701304869.300895,"caller":"controllers/assignment_controller.go:29","msg":"NotFound: Topic does not exist\n\tstatus code: 404, request id: c37c8c1c-066a-5f01-aa69-d1fdda0f4c26","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":201}
+{"level":"info","ts":1701304869.3010619,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701304922.83911,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701304923.4633431,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701305925.606486,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701305926.343795,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701305948.3686059,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701305948.514776,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701305948.515897,"caller":"controllers/assignment_controller.go:29","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":400}
+{"level":"info","ts":1701305948.690511,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":400}
+{"level":"info","ts":1701306695.7831051,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701306696.258452,"caller":"controllers/assignment_controller.go:29","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701306696.25875,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":403}
+{"level":"info","ts":1701306720.688479,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701306720.897315,"caller":"controllers/assignment_controller.go:29","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701306720.8974102,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":403}
+{"level":"info","ts":1701306737.535733,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701306737.685577,"caller":"controllers/assignment_controller.go:29","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701306737.6856608,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":403}
+{"level":"info","ts":1701306759.466198,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701306761.224482,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701306791.110594,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701306791.2508109,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701306791.250907,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":400}
+{"level":"info","ts":1701306813.145201,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701306813.502325,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701307109.821878,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701307110.399935,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701307128.93404,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701307129.1048021,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701307129.292363,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":400}
+{"level":"info","ts":1701307945.314442,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"error","ts":1701307945.787074,"caller":"controllers/assignment_controller.go:29","msg":"Number of attempts exceeded for this assignment","method":"POST","url":"/v1/assignments/bf45b9c8-e586-451b-8aeb-255ee218842c/submission","status":200}
+{"level":"info","ts":1701307946.0041401,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":403}
+{"level":"info","ts":1701307956.25055,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701307956.341544,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701307968.057951,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701307968.393875,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701308139.367396,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701308140.057605,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701308167.382693,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701308167.7304041,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701308180.466814,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701308180.801058,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701308213.333965,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701308213.758166,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701308242.311321,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701308242.646899,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}

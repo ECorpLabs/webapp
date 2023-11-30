@@ -21,6 +21,6 @@
 go.work
 
 **/.DS_Store
-
+webapp
 *.env
 .env.local

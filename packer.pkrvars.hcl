@@ -1,8 +1,8 @@
 aws_region       = "us-east-1"
-subnet_id        = "subnet-071040365a5f7a5f8"
+subnet_id        = "subnet-02ee7563bdef0e960"
 ami_users        = ["042793801071"]
 instance_type    = "t2.micro"
-profile          = "dev"
+profile          = "demo"
 volume_size      = 25
 device_name      = "/dev/xvda"
 volume_type      = "gp2"

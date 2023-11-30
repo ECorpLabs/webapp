@@ -40,6 +40,7 @@ func main() {
 	} else {
 		database.Database.AutoMigrate(&database.Account{})
 		database.Database.AutoMigrate(&database.Assignment{})
+		database.Database.AutoMigrate(&database.Submission{})
 
 		// Seed the database
 		filePath := os.Getenv("FILE_PATH")
