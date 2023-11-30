@@ -230,3 +230,5 @@
 {"level":"info","ts":1701308213.758166,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
 {"level":"info","ts":1701308242.311321,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
 {"level":"info","ts":1701308242.646899,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701308496.952062,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701308497.623093,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
