@@ -43,13 +43,15 @@ func GetUserEmailByID(accountID string) (string, error) {
 	return account.Email, nil
 }
 
+var status string
+
 func isZIP(url string) bool {
 	resp, err := http.Head(url)
 	if err != nil {
 		return false
 	}
 	defer resp.Body.Close()
-
+	status = "INVALIDZIP"
 	contentType := resp.Header.Get("Content-Type")
 	return strings.EqualFold(contentType, "application/zip")
 	//check content length is not zero
