@@ -76,7 +76,12 @@ Before getting started, make sure you have the following prerequisites installed
 - To download the application dependencies run `go mod downlaod`
 - To build the executable run `go build`
 - To run the executable run `./webapp`
-
+- Command to import the certificate 
+```
+aws acm import-certificate --profile demo \
+  --certificate fileb://demo_ecorplabs_me.crt \
+  --private-key fileb://private.key
+```
 
 ## Workflows
 
