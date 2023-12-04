@@ -232,3 +232,42 @@
 {"level":"info","ts":1701308242.646899,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
 {"level":"info","ts":1701308496.952062,"caller":"controllers/assignment_controller.go:61","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
 {"level":"info","ts":1701308497.623093,"caller":"controllers/assignment_controller.go:67","msg":"Response sent","status":201}
+{"level":"info","ts":1701717159.332501,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701717159.423744,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":200}
+{"level":"info","ts":1701717177.878264,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"error","ts":1701717178.445975,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"error","ts":1701717183.9709928,"caller":"controllers/assignment_controller.go:29","msg":"NoCredentialProviders: no valid providers in chain. Deprecated.\n\tFor verbose messaging see aws.Config.CredentialsChainVerboseErrors","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":400}
+{"level":"info","ts":1701717183.971349,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":400}
+{"level":"info","ts":1701717429.065399,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"error","ts":1701717429.587195,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"error","ts":1701717429.789505,"caller":"controllers/assignment_controller.go:29","msg":"AuthorizationError: User: arn:aws:iam::645253101346:user/packer is not authorized to perform: SNS:Publish on resource: arn:aws:sns:us-east-1:042793801071:submissionUpdates-c4ef9d5 because no resource-based policy allows the SNS:Publish action\n\tstatus code: 403, request id: 8015f87b-dd88-529d-baa6-a593fa7d7e27","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":400}
+{"level":"info","ts":1701717429.789699,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":400}
+{"level":"info","ts":1701717523.892433,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"error","ts":1701717524.3993118,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/67154c48-3de9-4579-8db2-a7234c700f51/submission","status":200}
+{"level":"info","ts":1701717524.603667,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":400}
+{"level":"info","ts":1701717735.317916,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701717735.790138,"caller":"controllers/assignment_controller.go:29","msg":"Assignment submission deadline has passed","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701717736.0012438,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":403}
+{"level":"info","ts":1701717924.820197,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701717925.339212,"caller":"controllers/assignment_controller.go:29","msg":"Assignment submission deadline has passed","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701717925.5525272,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":403}
+{"level":"info","ts":1701718275.1555562,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701718275.671902,"caller":"controllers/assignment_controller.go:29","msg":"Assignment submission deadline has passed","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701718275.898187,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":403}
+{"level":"info","ts":1701718305.246835,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"error","ts":1701718305.5369868,"caller":"controllers/assignment_controller.go:29","msg":"Invalid file format or empty ZIP file. Please submit a ZIP file url with content.","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263c/submission","status":200}
+{"level":"info","ts":1701718305.7156448,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":400}
+{"level":"info","ts":1701718373.782039,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263/submission","status":200}
+{"level":"error","ts":1701718374.2916842,"caller":"controllers/assignment_controller.go:29","msg":"Assignment not found","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263/submission","status":200}
+{"level":"info","ts":1701718374.493105,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":404}
+{"level":"info","ts":1701718959.3870301,"caller":"controllers/health_controller.go:16","msg":"Request received","method":"GET","url":"/healthz"}
+{"level":"info","ts":1701718959.387721,"caller":"controllers/health_controller.go:21","msg":"Response sent","status":200}
+{"level":"info","ts":1701718962.1715999,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263/submission","status":200}
+{"level":"error","ts":1701718962.6753678,"caller":"controllers/assignment_controller.go:29","msg":"Assignment not found","method":"POST","url":"/v1/assignments/7c5f4f24-8bac-412e-9ce9-9e47921a263/submission","status":200}
+{"level":"info","ts":1701718962.8814762,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":404}
+{"level":"info","ts":1701718984.887913,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"GET","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701718984.969346,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":200}
+{"level":"info","ts":1701718996.9139829,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments","status":200}
+{"level":"info","ts":1701718997.004716,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":201}
+{"level":"info","ts":1701719006.945854,"caller":"controllers/assignment_controller.go:63","msg":"Request received","method":"POST","url":"/v1/assignments/a4636b4d-b759-49c4-83d5-b8f9adaaa553/submission","status":200}
+{"level":"info","ts":1701719007.2673159,"caller":"controllers/assignment_controller.go:69","msg":"Response sent","status":201}
