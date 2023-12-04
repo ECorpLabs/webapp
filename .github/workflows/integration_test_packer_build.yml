@@ -84,3 +84,57 @@ jobs:
     - name: Validate Packer Configuration
       run: |
             packer build -var-file=packer.pkrvars.hcl packer.pkr.hcl
+
+  refresh-instances:
+    needs: build
+    runs-on: ubuntu-latest
+    name: refresh instances with the latest AMI
+    env:
+        EC2_LAUNCH_TEMPLATE: ${{ vars.EC2_LAUNCH_TEMPLATE}}
+        EC2_AUTOSCALING_GROUP: ${{ vars.EC2_ASG}}
+    steps:
+      - name: setup AWS demo account credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.DEMO_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEMO_AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-1
+      - name: get the latest AMI id
+        run: |
+          AMI_ID=$(aws ec2 describe-images \
+          --filters "Name=name,Values=csye-6225*" \
+          --query "Images | sort_by(@, &CreationDate) | [-1].ImageId" \
+          --output text)
+          echo "AMI_ID=$AMI_ID" >> $GITHUB_ENV
+      - name: print env variables
+        run: |
+          echo "EC2_LAUNCH_TEMPLATE: $EC2_LAUNCH_TEMPLATE"
+          echo "EC2_AUTOSCALING_GROUP: $EC2_AUTOSCALING_GROUP"
+          echo "AMI_ID: $AMI_ID"
+      - name: create new launch template version
+        run: |
+          aws ec2 create-launch-template-version \
+          --launch-template-name $EC2_LAUNCH_TEMPLATE \
+          --launch-template-data ImageId=$AMI_ID \
+          --source-version 1
+      - name: refresh instances
+        run: |
+          aws autoscaling start-instance-refresh \
+          --auto-scaling-group-name $EC2_AUTOSCALING_GROUP \
+      - name: wait on instance refresh completion
+        run: |
+          asg_name="<your-auto-scaling-group-name>"
+          while true; do
+              refresh_status=$(aws autoscaling describe-instance-refreshes --auto-scaling-group-name ${{ env.EC2_AUTOSCALING_GROUP }} --query 'InstanceRefreshes[0].Status' --output text)
+          
+              if [ "$refresh_status" == "Successful" ]; then
+                  echo "Instance refresh completed successfully."
+                  break
+              elif [ "$refresh_status" == "Failed" ]; then
+                  echo "Instance refresh failed."
+                  exit 1
+              else
+                  echo "Instance refresh in progress..."
+                  sleep 30
+              fi
+          done
