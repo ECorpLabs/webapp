@@ -69,7 +69,7 @@ func main() {
 	}
 	// Create a group for authenticated users
 
-	authGroup := router.Group("/v1/")
+	authGroup := router.Group("/demo/")
 	{
 		// Initialize AssignmentController and register its routes
 		assignmentController := controllers.NewAssignmentController()
